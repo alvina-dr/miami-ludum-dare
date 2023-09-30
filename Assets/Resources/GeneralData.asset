@@ -20,7 +20,7 @@ MonoBehaviour:
   tileFrequency: 5
   tileSpawnNumber: 0
   playerMaxHealth: 10
-  playerNormalSpeed: 5
+  playerNormalSpeed: 2
   timeRateReduction: 0.99
   gameStage:
   - 60
