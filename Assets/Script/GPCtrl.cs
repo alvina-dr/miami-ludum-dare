@@ -70,7 +70,7 @@ public class GPCtrl : MonoBehaviour
     private void Update()
     {
         tileTimer += Time.deltaTime;
-        Tile _closestEmptyTile = SearchCloseEmptyTile(new Vector2(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.z)));
+        Tile _closestEmptyTile = SearchCloseEmptyTile(new Vector2(player.transform.position.x, player.transform.position.z));
         if (_closestEmptyTile != closestEmptyTile)
         {
             if (closestEmptyTile != null && !closestEmptyTile.built) closestEmptyTile.HidePhantomTile();
