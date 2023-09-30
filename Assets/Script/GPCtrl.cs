@@ -42,7 +42,7 @@ public class GPCtrl : MonoBehaviour
         List<Tile> _freeTileList = tileList.FindAll(x => !x.built);
         for (int i = 0; i < _freeTileList.Count; i++)
         {
-            float _distance = Vector3.Distance(_freeTileList[i].transform.position, _position);
+            float _distance = Vector3.Distance(_freeTileList[i].transform.position, new Vector3(_position.x, 0, _position.y));
             if (smallerDistance > _distance) {
                 smallerDistance = _distance;
                 closestFreeTile = _freeTileList[i];
@@ -70,7 +70,7 @@ public class GPCtrl : MonoBehaviour
     private void Update()
     {
         tileTimer += Time.deltaTime;
-        Tile _closestEmptyTile = SearchCloseEmptyTile(new Vector2(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.y)));
+        Tile _closestEmptyTile = SearchCloseEmptyTile(new Vector2(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.z)));
         if (_closestEmptyTile != closestEmptyTile)
         {
             if (closestEmptyTile != null && !closestEmptyTile.built) closestEmptyTile.HidePhantomTile();
