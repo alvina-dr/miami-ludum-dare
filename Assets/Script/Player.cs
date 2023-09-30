@@ -104,13 +104,17 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (blockPlayerMovement)
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GPCtrl.Instance.UICtrl.UpgradeMenu.CallMenu();
+        }
+
+        if (GPCtrl.Instance.pause)
         {
             moveDirection = Vector3.zero;
             return;
         }
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-
         //Rotation system
         //if (aimDirection != Vector3.zero) mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, aimDirection, 10 * Time.deltaTime, 0);
         mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, moveDirection, 10 * Time.deltaTime, 0);

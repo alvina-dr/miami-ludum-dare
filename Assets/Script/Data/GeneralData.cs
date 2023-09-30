@@ -11,9 +11,16 @@ public class GeneralData : ScriptableObject
     public int tileRatio;
     public Tile tilePrefab;
     public float tileFrequency;
-    
+    public float tileSpawnNumber;
+
     [Header("PLAYER STATS")]
     public int playerMaxHealth;
     public int playerNormalSpeed;
 
+    [Header("SPAWN STATS")]
+    public float timeRateReduction;
+    public List<float> gameStage = new List<float>();
+
+    [Header("FX")]
+    public GameObject deathParticles;
 }

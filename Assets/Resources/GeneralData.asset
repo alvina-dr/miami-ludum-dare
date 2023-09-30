@@ -17,6 +17,11 @@ MonoBehaviour:
   tileRatio: 1
   tilePrefab: {fileID: 4654699597924930940, guid: 32bef75f1e68db14fa0b657f38ab208e,
     type: 3}
-  tileFrequency: 1
+  tileFrequency: 5
+  tileSpawnNumber: 0
   playerMaxHealth: 10
   playerNormalSpeed: 5
+  timeRateReduction: 0.99
+  gameStage:
+  - 60
+  deathParticles: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
