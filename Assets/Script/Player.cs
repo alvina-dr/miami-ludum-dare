@@ -10,10 +10,7 @@ public class Player : MonoBehaviour
     [Header("MOVEMENT")]
     private Vector3 moveDirection;
     private float currentSpeed;
-    public Rigidbody rb;
     public bool blockPlayerMovement;
-    public GameObject mesh;
-    public Animator animator;
 
     [Header("DASH")]
     [SerializeField] private float dashSpeed;
@@ -27,6 +24,9 @@ public class Player : MonoBehaviour
     private float currentHealth;
 
     [Header("COMPONENTS")]
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private GameObject mesh;
+    [SerializeField] private Animator animator;
     [SerializeField] private UI_ValueBar healthBar;
 
     [Header("INTERACTION SYSTEM")]
@@ -112,8 +112,8 @@ public class Player : MonoBehaviour
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
 
         //Rotation system
-        if (aimDirection != Vector3.zero) mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, aimDirection, 10 * Time.deltaTime, 0);
-        else mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, moveDirection, 10 * Time.deltaTime, 0);
+        //if (aimDirection != Vector3.zero) mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, aimDirection, 10 * Time.deltaTime, 0);
+        mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, moveDirection, 10 * Time.deltaTime, 0);
         //else if (aimDirection != Vector3.zero) mesh.transform.forward = aimDirection;
 
         //currentSpeed = aimingSpeed;
