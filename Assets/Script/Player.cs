@@ -34,7 +34,9 @@ public class Player : MonoBehaviour
     public Vector3 aimDirection;
     //private List<Interaction> interactionList = new List<Interaction>();
 
-    private GPCtrl GPCtrl;
+    [Header("WEAPONS")]
+    public Weapon_Sword sword;
+    public Weapon_Axe axe;
     #endregion
 
     #region Methods
@@ -91,6 +93,11 @@ public class Player : MonoBehaviour
         //death animation
         //show game over text
         //game over screen, back to base
+    }
+
+    public void Attack()
+    {
+
     }
     #endregion
 

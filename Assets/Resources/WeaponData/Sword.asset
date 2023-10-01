@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71fe61020c383814eadabd4c6546e1ec, type: 3}
-  m_Name: Enemy
+  m_Script: {fileID: 11500000, guid: 92b7b38592e9f784a90f00cd8f822e88, type: 3}
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  spawnRate: 10
-  spawnTime: 0
-  enemyPrefab: {fileID: 7452097201820894392, guid: 02b2dc09d25aadd42b3c2be26d5b087a,
-    type: 3}
-  maxHealth: 1
-  speed: 1
   damage: 1
+  reloadTime: 1.5
+  angle: 90

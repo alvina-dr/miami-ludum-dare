@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     public virtual void Attack() //example suicide attack
     {
         target.Damage(data.damage);
-        Kill();
+        //Kill();
     }
 
     public virtual void Damage(int _value)
@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
         {
             meshParent.transform.DOScale(1f, .1f).OnComplete(() =>
             {
+                Debug.Log("DAMAGE");
                 if (currentHealth <= 0)
                 {
                     Kill();
