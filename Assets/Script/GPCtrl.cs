@@ -15,6 +15,7 @@ public class GPCtrl : MonoBehaviour
     [Header("TILE MANAGER")]
     [SerializeField] private float tileTimer;
     private List<Tile> tileList = new List<Tile>();
+    public int builtTileCount() { return tileList.FindAll(x => x.built).Count; }
     private Tile closestEmptyTile;
 
     [Header("SPAWN")]
@@ -54,7 +55,7 @@ public class GPCtrl : MonoBehaviour
     {
         Tile closestFreeTile = null;
         float smallerDistance = 1000;
-        List<Tile> _freeTileList = tileList.FindAll(x => !x.built);
+        List<Tile> _freeTileList = tileList.FindAll((x) => x.state == Tile.TileState.Empty);
         for (int i = 0; i < _freeTileList.Count; i++)
         {
             float _distance = Vector3.Distance(_freeTileList[i].transform.position, new Vector3(_position.x, 0, _position.y));
@@ -64,6 +65,32 @@ public class GPCtrl : MonoBehaviour
             }
         }
         return closestFreeTile;
+    }
+
+    public Tile SearchFarBuiltTile(Vector2 _position)
+    {
+        Tile farthestBuitTile = null;
+        float biggerDistance = 0;
+        List<Tile> _builtTileList = tileList.FindAll((x) => x.state == Tile.TileState.Built);
+        for (int i = 0; i < _builtTileList.Count; i++)
+        {
+            float _distance = Vector3.Distance(_builtTileList[i].transform.position, new Vector3(_position.x, 0, _position.y));
+            if (biggerDistance < _distance)
+            {
+                biggerDistance = _distance;
+                farthestBuitTile = _builtTileList[i];
+            }
+        }
+        return farthestBuitTile;
+    }
+
+    public void DestroyFarthestTiles(int _num)
+    {
+        for (int i = 0; i < _num; i++)
+        {
+            Tile _tile = SearchFarBuiltTile(new Vector2(player.transform.position.x, player.transform.position.z));
+            _tile.DestroyTile();
+        }
     }
 
     private void SpawnEnemy(Enemy enemyPrefab, float _angle = 0, float _radiusBonus = 0, bool center = false)
@@ -138,7 +165,6 @@ public class GPCtrl : MonoBehaviour
         {
             for (int i = 0; i < upgradeSave.tileNumber; i++)
             {
-                Debug.Log("build several time : " + upgradeSave.tileNumber);
                 if (closestEmptyTile != null) closestEmptyTile.BuildTile();
                 closestEmptyTile = SearchCloseEmptyTile(new Vector2(player.transform.position.x, player.transform.position.z));
             }
