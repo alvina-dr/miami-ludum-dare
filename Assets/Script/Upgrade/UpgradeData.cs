@@ -11,7 +11,7 @@ public class UpgradeData : ScriptableObject
     public float cost;
     public float factor;
 
-    public virtual void Upgrade(GeneralData data)
+    public virtual void Upgrade(GPCtrl.UpgradeSave data)
     {
 
     }
