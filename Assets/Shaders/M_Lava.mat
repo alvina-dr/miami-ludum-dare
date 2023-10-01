@@ -86,8 +86,8 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BottomRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _ColorFresnel: {r: 5.3403134, g: 1.471428, b: 0, a: 1}
-    - _ColorLava: {r: 3.3207555, g: 0.44721764, b: 0.034772377, a: 1}
+    - _ColorFresnel: {r: 5.3403144, g: 1.1446781, b: 0, a: 1}
+    - _ColorLava: {r: 3.3207555, g: 0.14905716, b: 0.052158367, a: 1}
     - _LavaScale: {r: 50, g: 50, b: 0, a: 0}
     - _LavaSpeed: {r: 0, g: 0.1, b: 0, a: 0}
     - _NoiseSpeed: {r: 0.0001, g: 0.005, b: 0, a: 0}

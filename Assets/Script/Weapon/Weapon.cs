@@ -27,6 +27,7 @@ public class Weapon : MonoBehaviour
         if (_enemy != null)
         {
             _enemy.Damage(data.damage);
+            CinemachineShake.Instance.ShakeCamera(3, .1f);
         }
     }
 }

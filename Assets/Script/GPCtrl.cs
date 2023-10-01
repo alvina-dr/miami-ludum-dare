@@ -108,6 +108,8 @@ public class GPCtrl : MonoBehaviour
         {
             _enemyArray[i].Kill();
         }
+        player.sword.gameObject.SetActive(false);
+        player.axe.gameObject.SetActive(false);
     }
     #endregion
 
