@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshParent: {fileID: 1898056124707076683}
   mesh: {fileID: 8788123165309254434}
+  blink: {fileID: 1796626650151764031}
   target: {fileID: 0}
   data: {fileID: 11400000, guid: c0e227f8b15ed4640ba867973a1c63e8, type: 2}
   currentHealth: 0
@@ -310,6 +311,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 289571768376711327}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 380c31a50577eab4ab269f708aaa0ffe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1796626650151764031}
   m_SourcePrefab: {fileID: 100100000, guid: 380c31a50577eab4ab269f708aaa0ffe, type: 3}
 --- !u!1 &8453926314465453172 stripped
 GameObject:
@@ -338,6 +343,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1796626650151764031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453926314465453172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c2c33b279c75a48a25891c30e8c481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7b8f1072a04958f44824be8c083000e5, type: 2}
 --- !u!4 &9086489013912223438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 380c31a50577eab4ab269f708aaa0ffe,

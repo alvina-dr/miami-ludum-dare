@@ -16,6 +16,6 @@ MonoBehaviour:
   spawnTime: 0
   enemyPrefab: {fileID: 7452097201820894392, guid: 02b2dc09d25aadd42b3c2be26d5b087a,
     type: 3}
-  maxHealth: 1
-  speed: 1
+  maxHealth: 2
+  speed: 0.5
   damage: 1

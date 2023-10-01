@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [Header("COMPONENTS")]
     public Transform meshParent;
     public MeshRenderer mesh;
+    [SerializeField] private BlinkColor blink;
     [HideInInspector] public Player target;
 
     [Header("STATS")]
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0) return;
         currentHealth -= _value;
         if (meshParent == null) return;
+        blink.Blink();
         meshParent.transform.DOScale(1.1f, .1f).OnComplete( () =>
         {
             meshParent.transform.DOScale(1f, .1f).OnComplete(() =>

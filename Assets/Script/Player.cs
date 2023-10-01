@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject mesh;
     [SerializeField] private Animator animator;
     [SerializeField] private UI_ValueBar healthBar;
+    [SerializeField] private BlinkColor blink;
 
     [Header("INTERACTION SYSTEM")]
     public Vector3 aimDirection;
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
         //CinemachineShake.Instance.ShakeCamera(3, .1f);
         currentHealth -= _damage;
         healthBar.SetBarValue(currentHealth, maxHealth);
+        blink.Blink();
         //GPCtrl.Instance.UICtrl.healthCount.SetText(currentHealth.ToString() + "/" + maxHealth.ToString());
         if (currentHealth <= 0)
             Death();
@@ -131,7 +133,7 @@ public class Player : MonoBehaviour
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
         //Rotation system
         //if (aimDirection != Vector3.zero) mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, aimDirection, 10 * Time.deltaTime, 0);
-        mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, moveDirection, 10 * Time.deltaTime, 0);
+        mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, moveDirection, 30 * Time.deltaTime, 0);
         //else if (aimDirection != Vector3.zero) mesh.transform.forward = aimDirection;
 
         //currentSpeed = aimingSpeed;
