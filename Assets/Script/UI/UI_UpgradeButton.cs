@@ -27,6 +27,7 @@ public class UI_UpgradeButton : MonoBehaviour
         data.Upgrade(GPCtrl.Instance.upgradeSave);
         GPCtrl.Instance.DestroyFarthestTiles(data.cost);
         GPCtrl.Instance.UICtrl.UpgradeMenu.UpdateMenu();
+        CinemachineShake.Instance.ShakeCamera(3, .1f);
     }
 
     public void UpdateButton()

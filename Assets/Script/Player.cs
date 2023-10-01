@@ -70,6 +70,7 @@ public class Player : MonoBehaviour
         currentHealth -= _damage;
         healthBar.SetBarValue(currentHealth, maxHealth);
         blink.Blink();
+        CinemachineShake.Instance.ShakeCamera(3, .1f);
         //GPCtrl.Instance.UICtrl.healthCount.SetText(currentHealth.ToString() + "/" + maxHealth.ToString());
         if (currentHealth <= 0)
             Death();
