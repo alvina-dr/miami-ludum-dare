@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
     {
         if (meshParent == null) return;
         meshParent.transform.DOScale(0f, .1f).OnComplete(() => {
+            mesh.transform.DOKill();
             Instantiate(GPCtrl.Instance.GeneralData.deathParticles).transform.position = transform.position;
             Destroy(gameObject);
         });
