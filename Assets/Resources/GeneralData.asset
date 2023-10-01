@@ -18,7 +18,7 @@ MonoBehaviour:
   tilePrefab: {fileID: 4654699597924930940, guid: 32bef75f1e68db14fa0b657f38ab208e,
     type: 3}
   tileFrequency: 5
-  tileSpawnNumber: 0
+  tileSpawnNumber: 1
   playerMaxHealth: 10
   playerNormalSpeed: 2
   timeRateReduction: 0.99

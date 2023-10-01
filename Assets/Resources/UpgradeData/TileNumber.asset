@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TileNumber
   m_EditorClassIdentifier: 
   upgradeName: Tile multiplicator
-  upgradeDescription: Double the number of tiles that are built at a time.
+  upgradeDescription: The number of tile built each time (+1).
   sprite: {fileID: 0}
   cost: 3
-  factor: 2
+  factor: 1

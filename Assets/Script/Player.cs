@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [Header("STATS")]
     private float maxHealth;
     private float currentHealth;
+    public float getHealth() { return currentHealth;  }
 
     [Header("COMPONENTS")]
     [SerializeField] private Rigidbody rb;
@@ -76,7 +77,8 @@ public class Player : MonoBehaviour
     {
         Debug.Log("DEATH");
         blockPlayerMovement = true;
-        //animator.SetTrigger("Dying");
+        animator.SetTrigger("Death");
+        GPCtrl.Instance.GameOver();
         //DOVirtual.DelayedCall(.8f, () => {
         //    PermanentDataHolder.Instance.FadeIn(() =>
         //    {
@@ -104,6 +106,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (blockPlayerMovement)
+        {
+            moveDirection = Vector3.zero;
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             GPCtrl.Instance.UICtrl.UpgradeMenu.CallMenu();
@@ -127,8 +134,8 @@ public class Player : MonoBehaviour
         //currentSpeed = runningSpeed;
         //animator.speed = 1;
 
-        //if (moveDirection != Vector3.zero) animator.SetBool("Running", true);
-        //else animator.SetBool("Running", false);
+        if (moveDirection != Vector3.zero) animator.SetBool("Walking", true);
+        else animator.SetBool("Walking", false);
     }
     private void FixedUpdate()
     {

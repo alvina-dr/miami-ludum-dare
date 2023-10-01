@@ -25,6 +25,7 @@ public class GPCtrl : MonoBehaviour
     private int currentGameStage = 0;
 
     [Header("UPGRADE")]
+    public UpgradeSave upgradeSave;
     public List<UpgradeData> upgradeDataList = new List<UpgradeData>();
 
     public bool pause = false;
@@ -45,7 +46,7 @@ public class GPCtrl : MonoBehaviour
     public void InstantiateTile(int _x, int _y)
     {
         Tile _tile = Instantiate(GeneralData.tilePrefab);
-        _tile.transform.position = new Vector3(_x * GeneralData.tileRatio, 0, _y * GeneralData.tileRatio);
+        _tile.transform.position = new Vector3(_x * GeneralData.tileRatio - GeneralData.width/2, 0, _y * GeneralData.tileRatio - GeneralData.height / 2);
         tileList.Add(_tile);
     }
 
@@ -71,6 +72,15 @@ public class GPCtrl : MonoBehaviour
         Vector3 pos = new Vector3((spawnRadius + _radiusBonus) * Mathf.Cos(_angle), 1, (spawnRadius + _radiusBonus) * Mathf.Sin(_angle));
         if (center) pos = Vector3.zero;
         Instantiate(enemyPrefab).transform.position = pos;
+    }
+
+    public void GameOver()
+    {
+        Enemy[] _enemyArray = FindObjectsOfType<Enemy>();
+        for (int i = 0; i < _enemyArray.Length; i++)
+        {
+            _enemyArray[i].Kill();
+        }
     }
     #endregion
 
@@ -107,12 +117,13 @@ public class GPCtrl : MonoBehaviour
             timerList.Add(enemy.spawnRate);
         }
         SetupMap();
+        upgradeSave = new UpgradeSave(GeneralData.tileSpawnNumber, GeneralData.tileFrequency);
     }
 
     private void Update()
     {
         if (pause) return;
-
+        if (GPCtrl.Instance.player.blockPlayerMovement) return;
         float timeSinceStart = Time.time - startTime;
         tileTimer += Time.deltaTime;
         
@@ -123,9 +134,14 @@ public class GPCtrl : MonoBehaviour
             closestEmptyTile = _closestEmptyTile;
             closestEmptyTile.ShowPhantomTile();
         }
-        if (tileTimer >= GeneralData.tileFrequency)
+        if (tileTimer >= upgradeSave.tileFrequency)
         {
-            if (closestEmptyTile != null) closestEmptyTile.BuildTile();
+            for (int i = 0; i < upgradeSave.tileNumber; i++)
+            {
+                Debug.Log("build several time : " + upgradeSave.tileNumber);
+                if (closestEmptyTile != null) closestEmptyTile.BuildTile();
+                closestEmptyTile = SearchCloseEmptyTile(new Vector2(player.transform.position.x, player.transform.position.z));
+            }
             tileTimer = 0;
         }
 
@@ -152,6 +168,20 @@ public class GPCtrl : MonoBehaviour
                 timerList[i] = enemyDataList[i].spawnRate;
                 SpawnEnemy(enemyDataList[i].enemyPrefab);
             }
+        }
+    }
+    #endregion
+
+    #region Class
+    public class UpgradeSave
+    {
+        public float tileNumber;
+        public float tileFrequency;
+
+        public UpgradeSave(float _tileNumber, float _tileFrequency)
+        {
+            tileNumber = _tileNumber;
+            tileFrequency = _tileFrequency;
         }
     }
     #endregion

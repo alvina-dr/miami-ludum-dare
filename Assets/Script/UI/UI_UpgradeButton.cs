@@ -23,7 +23,7 @@ public class UI_UpgradeButton : MonoBehaviour
 
     public void Upgrade()
     {
-        data.Upgrade(GPCtrl.Instance.GeneralData);
+        data.Upgrade(GPCtrl.Instance.upgradeSave);
     }
 
     #endregion
