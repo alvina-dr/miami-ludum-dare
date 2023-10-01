@@ -40,7 +40,6 @@ public class Enemy : MonoBehaviour
         {
             meshParent.transform.DOScale(1f, .1f).OnComplete(() =>
             {
-                Debug.Log("DAMAGE");
                 if (currentHealth <= 0)
                 {
                     Kill();
@@ -80,6 +79,10 @@ public class Enemy : MonoBehaviour
     {
         if (GPCtrl.Instance.pause) return;
         Move();
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            blink.Blink();
+        }
     }
     #endregion
 }

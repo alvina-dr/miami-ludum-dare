@@ -3,7 +3,27 @@ guid: 380c31a50577eab4ab269f708aaa0ffe
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bat
+    second: {fileID: 2100000, guid: 2fce4dbf93cc97b4eb179d20e5a6f4a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fur
+    second: {fileID: 2100000, guid: 38d2cb507ba02c04abf87830a4d75d31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eYE
+    second: {fileID: 2100000, guid: 76a66d5d48bd43d47b517f4715702889, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skin
+    second: {fileID: 2100000, guid: 4a1a7adce68b2214495ba5f5c98379b3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -119,7 +139,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
+    globalScale: 20
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
