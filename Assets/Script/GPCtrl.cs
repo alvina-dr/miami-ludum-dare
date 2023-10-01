@@ -147,7 +147,7 @@ public class GPCtrl : MonoBehaviour
             timerList.Add(enemy.spawnRate);
         }
         SetupMap();
-        upgradeSave = new UpgradeSave(GeneralData.tileSpawnNumber, GeneralData.tileFrequency);
+        upgradeSave = new UpgradeSave(GeneralData.tileSpawnNumber, GeneralData.tileFrequency, player.axe.data.reloadTime);
     }
 
     private void Update()
@@ -206,11 +206,13 @@ public class GPCtrl : MonoBehaviour
     {
         public float tileNumber;
         public float tileFrequency;
+        public float axeFrequency;
 
-        public UpgradeSave(float _tileNumber, float _tileFrequency)
+        public UpgradeSave(float _tileNumber, float _tileFrequency, float _axeFrequency)
         {
             tileNumber = _tileNumber;
             tileFrequency = _tileFrequency;
+            axeFrequency = _axeFrequency;
         }
     }
     #endregion

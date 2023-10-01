@@ -11,7 +11,7 @@ public class UpgradeData : ScriptableObject
     public int cost;
     public float factor;
 
-    public virtual void Upgrade(GPCtrl.UpgradeSave data)
+    public virtual void Upgrade(GPCtrl.UpgradeSave data, Player player, int num)
     {
 
     }

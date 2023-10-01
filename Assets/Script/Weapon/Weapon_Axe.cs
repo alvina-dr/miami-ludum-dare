@@ -14,7 +14,7 @@ public class Weapon_Axe : Weapon
             if (mesh != null) mesh.gameObject.SetActive(false);
         }));
         //sequence.Append(transform.DOLocalScale(0, 0), .01f));
-        sequence.AppendInterval(data.reloadTime);
+        sequence.AppendInterval(GPCtrl.Instance.upgradeSave.axeFrequency);
         sequence.AppendCallback(() =>
         {
             if (mesh != null) mesh.gameObject.SetActive(true);
