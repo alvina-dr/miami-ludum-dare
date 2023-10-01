@@ -23,4 +23,10 @@ public class GeneralData : ScriptableObject
 
     [Header("FX")]
     public GameObject deathParticles;
+
+    [Header("SOUND")]
+    public List<AudioClip> enemyDamageSound = new List<AudioClip>();
+    public List<AudioClip> playerDamageSound = new List<AudioClip>();
+    public List<AudioClip> gameOverSound = new List<AudioClip>();
+    public List<AudioClip> menuSound = new List<AudioClip>();
 }

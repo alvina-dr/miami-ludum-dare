@@ -10,6 +10,7 @@ public class UI_UpgradeMenu : MonoBehaviour
     [SerializeField] private Transform layout;
     [SerializeField] private UI_UpgradeButton buttonPrefab;
     [SerializeField] private List<UI_UpgradeButton> buttonList;
+    [SerializeField] private AudioSource audioSource;
     #endregion
 
     #region Methods

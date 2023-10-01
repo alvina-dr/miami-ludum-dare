@@ -31,3 +31,14 @@ MonoBehaviour:
   - 500
   - 1000
   deathParticles: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  enemyDamageSound:
+  - {fileID: 8300000, guid: 6716ba5c2c4478f4ca99f7cd76c5dab0, type: 3}
+  - {fileID: 8300000, guid: 3dcf72a6c1cd57f439cd96692c032bb3, type: 3}
+  - {fileID: 8300000, guid: d4d62714525c6e340b295692ee830108, type: 3}
+  playerDamageSound:
+  - {fileID: 8300000, guid: 4e4b157146feb2e40a8c2ff32c79778f, type: 3}
+  - {fileID: 8300000, guid: cfae80ed47422b54c9d21c3c233460fa, type: 3}
+  - {fileID: 8300000, guid: c457a5aef91795447a1cc79d5bbb0d71, type: 3}
+  gameOverSound:
+  - {fileID: 8300000, guid: 817ed8518152e9642ba6376bed2df10d, type: 3}
+  - {fileID: 8300000, guid: 48f85223f28baf04aafd502920d43231, type: 3}
