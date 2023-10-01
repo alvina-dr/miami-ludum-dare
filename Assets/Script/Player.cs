@@ -79,7 +79,6 @@ public class Player : MonoBehaviour
         blockPlayerMovement = true;
         animator.SetTrigger("Death");
         GPCtrl.Instance.GameOver();
-        //animator.SetTrigger("Dying");
         //DOVirtual.DelayedCall(.8f, () => {
         //    PermanentDataHolder.Instance.FadeIn(() =>
         //    {
@@ -107,7 +106,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (blockPlayerMovement) return;
+        if (blockPlayerMovement)
+        {
+            moveDirection = Vector3.zero;
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             GPCtrl.Instance.UICtrl.UpgradeMenu.CallMenu();

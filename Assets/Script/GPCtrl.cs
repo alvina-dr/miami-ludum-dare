@@ -25,6 +25,7 @@ public class GPCtrl : MonoBehaviour
     private int currentGameStage = 0;
 
     [Header("UPGRADE")]
+    public UpgradeSave upgradeSave;
     public List<UpgradeData> upgradeDataList = new List<UpgradeData>();
 
     public bool pause = false;
@@ -116,6 +117,7 @@ public class GPCtrl : MonoBehaviour
             timerList.Add(enemy.spawnRate);
         }
         SetupMap();
+        upgradeSave = new UpgradeSave(GeneralData.tileSpawnNumber, GeneralData.tileFrequency);
     }
 
     private void Update()
@@ -132,9 +134,14 @@ public class GPCtrl : MonoBehaviour
             closestEmptyTile = _closestEmptyTile;
             closestEmptyTile.ShowPhantomTile();
         }
-        if (tileTimer >= GeneralData.tileFrequency)
+        if (tileTimer >= upgradeSave.tileFrequency)
         {
-            if (closestEmptyTile != null) closestEmptyTile.BuildTile();
+            for (int i = 0; i < upgradeSave.tileNumber; i++)
+            {
+                Debug.Log("build several time : " + upgradeSave.tileNumber);
+                if (closestEmptyTile != null) closestEmptyTile.BuildTile();
+                closestEmptyTile = SearchCloseEmptyTile(new Vector2(player.transform.position.x, player.transform.position.z));
+            }
             tileTimer = 0;
         }
 
@@ -161,6 +168,20 @@ public class GPCtrl : MonoBehaviour
                 timerList[i] = enemyDataList[i].spawnRate;
                 SpawnEnemy(enemyDataList[i].enemyPrefab);
             }
+        }
+    }
+    #endregion
+
+    #region Class
+    public class UpgradeSave
+    {
+        public float tileNumber;
+        public float tileFrequency;
+
+        public UpgradeSave(float _tileNumber, float _tileFrequency)
+        {
+            tileNumber = _tileNumber;
+            tileFrequency = _tileFrequency;
         }
     }
     #endregion
