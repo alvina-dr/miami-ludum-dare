@@ -77,6 +77,8 @@ public class Player : MonoBehaviour
     {
         Debug.Log("DEATH");
         blockPlayerMovement = true;
+        animator.SetTrigger("Death");
+        GPCtrl.Instance.GameOver();
         //animator.SetTrigger("Dying");
         //DOVirtual.DelayedCall(.8f, () => {
         //    PermanentDataHolder.Instance.FadeIn(() =>
@@ -129,8 +131,8 @@ public class Player : MonoBehaviour
         //currentSpeed = runningSpeed;
         //animator.speed = 1;
 
-        //if (moveDirection != Vector3.zero) animator.SetBool("Running", true);
-        //else animator.SetBool("Running", false);
+        if (moveDirection != Vector3.zero) animator.SetBool("Walking", true);
+        else animator.SetBool("Walking", false);
     }
     private void FixedUpdate()
     {

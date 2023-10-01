@@ -45,7 +45,7 @@ public class GPCtrl : MonoBehaviour
     public void InstantiateTile(int _x, int _y)
     {
         Tile _tile = Instantiate(GeneralData.tilePrefab);
-        _tile.transform.position = new Vector3(_x * GeneralData.tileRatio, 0, _y * GeneralData.tileRatio);
+        _tile.transform.position = new Vector3(_x * GeneralData.tileRatio - GeneralData.width/2, 0, _y * GeneralData.tileRatio - GeneralData.height / 2);
         tileList.Add(_tile);
     }
 
@@ -71,6 +71,15 @@ public class GPCtrl : MonoBehaviour
         Vector3 pos = new Vector3((spawnRadius + _radiusBonus) * Mathf.Cos(_angle), 1, (spawnRadius + _radiusBonus) * Mathf.Sin(_angle));
         if (center) pos = Vector3.zero;
         Instantiate(enemyPrefab).transform.position = pos;
+    }
+
+    public void GameOver()
+    {
+        Enemy[] _enemyArray = FindObjectsOfType<Enemy>();
+        for (int i = 0; i < _enemyArray.Length; i++)
+        {
+            _enemyArray[i].Kill();
+        }
     }
     #endregion
 
@@ -112,7 +121,7 @@ public class GPCtrl : MonoBehaviour
     private void Update()
     {
         if (pause) return;
-
+        if (GPCtrl.Instance.player.blockPlayerMovement) return;
         float timeSinceStart = Time.time - startTime;
         tileTimer += Time.deltaTime;
         

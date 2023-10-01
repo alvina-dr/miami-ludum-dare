@@ -10,6 +10,7 @@ public class BurningGround : MonoBehaviour
         if (_player != null)
         {
             Debug.Log("PLAYER SHOULD BURN");
+            if (_player.getHealth() <= 0) return;
             _player.Damage(_player.getHealth());
             _player.Death();
         }
