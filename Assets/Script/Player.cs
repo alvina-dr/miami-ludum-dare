@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [Header("STATS")]
     private float maxHealth;
     private float currentHealth;
+    public float getHealth() { return currentHealth;  }
 
     [Header("COMPONENTS")]
     [SerializeField] private Rigidbody rb;
@@ -104,6 +105,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (blockPlayerMovement) return;
         if (Input.GetKeyDown(KeyCode.P))
         {
             GPCtrl.Instance.UICtrl.UpgradeMenu.CallMenu();
