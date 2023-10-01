@@ -110,6 +110,7 @@ public class GPCtrl : MonoBehaviour
         }
         player.sword.gameObject.SetActive(false);
         player.axe.gameObject.SetActive(false);
+        UICtrl.GameOverMenu.OpenMenu();
     }
     #endregion
 

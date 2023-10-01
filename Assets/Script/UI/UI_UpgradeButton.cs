@@ -12,7 +12,7 @@ public class UI_UpgradeButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private Image image;
-
+    public int num = 1;
     #region Methods
     public void SetupButton(UpgradeData _data)
     {
@@ -27,12 +27,12 @@ public class UI_UpgradeButton : MonoBehaviour
         data.Upgrade(GPCtrl.Instance.upgradeSave);
         GPCtrl.Instance.DestroyFarthestTiles(data.cost);
         GPCtrl.Instance.UICtrl.UpgradeMenu.UpdateMenu();
-        CinemachineShake.Instance.ShakeCamera(3, .1f);
+        num += 1;
     }
 
     public void UpdateButton()
     {
-        costText.text = data.cost.ToString();
+        costText.text = (data.cost * num).ToString();
         if (GPCtrl.Instance.builtTileCount() > data.cost)
         {
             costText.color = Color.black;

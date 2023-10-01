@@ -19,4 +19,9 @@ public class DataHolder : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
 }
