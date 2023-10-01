@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     [Header("WEAPONS")]
     public Weapon_Sword sword;
     public Weapon_Axe axe;
+
+    [SerializeField] private AudioSource audioSource;
     #endregion
 
     #region Methods
@@ -70,6 +72,8 @@ public class Player : MonoBehaviour
         currentHealth -= _damage;
         healthBar.SetBarValue(currentHealth, maxHealth);
         blink.Blink();
+        if (audioSource != null) audioSource.clip = GPCtrl.Instance.GeneralData.playerDamageSound[Random.Range(0, GPCtrl.Instance.GeneralData.playerDamageSound.Count)];
+        if (audioSource != null) audioSource.Play();
         CinemachineShake.Instance.ShakeCamera(3, .1f);
         //GPCtrl.Instance.UICtrl.healthCount.SetText(currentHealth.ToString() + "/" + maxHealth.ToString());
         if (currentHealth <= 0)

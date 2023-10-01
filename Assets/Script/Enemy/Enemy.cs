@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     public EnemyData data;
     [SerializeField] private int currentHealth;
 
+    [SerializeField] private AudioSource audioSource;
+
     #endregion
 
     #region Methods
@@ -36,6 +38,8 @@ public class Enemy : MonoBehaviour
         currentHealth -= _value;
         if (meshParent == null) return;
         blink.Blink();
+        audioSource.clip = GPCtrl.Instance.GeneralData.enemyDamageSound[Random.Range(0, GPCtrl.Instance.GeneralData.enemyDamageSound.Count)];
+        audioSource.Play();
         meshParent.transform.DOScale(1.1f, .1f).OnComplete( () =>
         {
             meshParent.transform.DOScale(1f, .1f).OnComplete(() =>

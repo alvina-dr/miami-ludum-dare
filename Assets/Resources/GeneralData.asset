@@ -42,3 +42,11 @@ MonoBehaviour:
   gameOverSound:
   - {fileID: 8300000, guid: 817ed8518152e9642ba6376bed2df10d, type: 3}
   - {fileID: 8300000, guid: 48f85223f28baf04aafd502920d43231, type: 3}
+  menuSound:
+  - {fileID: 8300000, guid: 3f72b1c121117634d80101fc6baf21f5, type: 3}
+  - {fileID: 8300000, guid: a5421f4602cced64992d34c1ccf8d35e, type: 3}
+  - {fileID: 8300000, guid: e4917ec290d2c5f458620808eec91091, type: 3}
+  upgradeSound:
+  - {fileID: 8300000, guid: 08254c7adfba9eb48b7e7e4a480c703a, type: 3}
+  - {fileID: 8300000, guid: 2db9a09e8967b964e92e3e8cbb911d27, type: 3}
+  - {fileID: 8300000, guid: 9e11ad08c395a804799e4c0f6049a771, type: 3}

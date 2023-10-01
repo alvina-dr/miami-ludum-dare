@@ -29,4 +29,5 @@ public class GeneralData : ScriptableObject
     public List<AudioClip> playerDamageSound = new List<AudioClip>();
     public List<AudioClip> gameOverSound = new List<AudioClip>();
     public List<AudioClip> menuSound = new List<AudioClip>();
+    public List<AudioClip> upgradeSound = new List<AudioClip>();
 }

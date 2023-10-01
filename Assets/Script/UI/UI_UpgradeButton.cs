@@ -13,6 +13,7 @@ public class UI_UpgradeButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private Image image;
     public int num = 1;
+    [SerializeField] private AudioSource audioSource;
     #region Methods
     public void SetupButton(UpgradeData _data)
     {
@@ -24,6 +25,8 @@ public class UI_UpgradeButton : MonoBehaviour
 
     public void Upgrade()
     {
+        audioSource.clip = GPCtrl.Instance.GeneralData.upgradeSound[Random.Range(0, GPCtrl.Instance.GeneralData.upgradeSound.Count)];
+        audioSource.Play();
         data.Upgrade(GPCtrl.Instance.upgradeSave);
         GPCtrl.Instance.DestroyFarthestTiles(data.cost);
         GPCtrl.Instance.UICtrl.UpgradeMenu.UpdateMenu();

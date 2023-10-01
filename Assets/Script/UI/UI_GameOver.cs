@@ -9,7 +9,7 @@ public class UI_GameOver : MonoBehaviour
 
     public void OpenMenu()
     {
-        audioSource.clip = GPCtrl.Instance.GeneralData.menuSound[Random.Range(0, GPCtrl.Instance.GeneralData.menuSound.Count)];
+        audioSource.clip = GPCtrl.Instance.GeneralData.gameOverSound[Random.Range(0, GPCtrl.Instance.GeneralData.gameOverSound.Count)];
         audioSource.Play();
         transform.DOScale(1.1f, .2f).OnComplete(() =>
         {
