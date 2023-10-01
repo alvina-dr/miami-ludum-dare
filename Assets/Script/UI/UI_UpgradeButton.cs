@@ -7,6 +7,7 @@ using TMPro;
 public class UI_UpgradeButton : MonoBehaviour
 {
     public UpgradeData data;
+    [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI costText;
@@ -24,7 +25,22 @@ public class UI_UpgradeButton : MonoBehaviour
     public void Upgrade()
     {
         data.Upgrade(GPCtrl.Instance.upgradeSave);
+        GPCtrl.Instance.DestroyFarthestTiles(data.cost);
+        GPCtrl.Instance.UICtrl.UpgradeMenu.UpdateMenu();
     }
 
+    public void UpdateButton()
+    {
+        costText.text = data.cost.ToString();
+        if (GPCtrl.Instance.builtTileCount() > data.cost)
+        {
+            costText.color = Color.black;
+            button.interactable = true;
+        } else
+        {
+            button.interactable = false;
+            costText.color = Color.red;
+        }
+    }
     #endregion
 }

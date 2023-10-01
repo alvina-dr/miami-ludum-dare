@@ -8,7 +8,7 @@ public class UpgradeData : ScriptableObject
     public string upgradeName;
     public string upgradeDescription;
     public Sprite sprite;
-    public float cost;
+    public int cost;
     public float factor;
 
     public virtual void Upgrade(GPCtrl.UpgradeSave data)
