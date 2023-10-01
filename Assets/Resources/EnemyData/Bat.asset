@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fe61020c383814eadabd4c6546e1ec, type: 3}
   m_Name: Bat
   m_EditorClassIdentifier: 
-  spawnRate: 10
+  spawnRate: 7
   spawnTime: 0
   enemyPrefab: {fileID: 7452097201820894392, guid: 02b2dc09d25aadd42b3c2be26d5b087a,
     type: 3}
