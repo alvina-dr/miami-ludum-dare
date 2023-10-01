@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7ac84556c74f348b202466b036231d, type: 3}
   m_Name: GeneralData
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
+  width: 50
+  height: 50
   tileRatio: 1
   tilePrefab: {fileID: 4654699597924930940, guid: 32bef75f1e68db14fa0b657f38ab208e,
     type: 3}
@@ -21,7 +21,13 @@ MonoBehaviour:
   tileSpawnNumber: 1
   playerMaxHealth: 10
   playerNormalSpeed: 2
-  timeRateReduction: 0.99
+  timeRateReduction: 0.9
   gameStage:
+  - 20
   - 60
+  - 120
+  - 180
+  - 300
+  - 500
+  - 1000
   deathParticles: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}

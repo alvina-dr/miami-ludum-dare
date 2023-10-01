@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71fe61020c383814eadabd4c6546e1ec, type: 3}
-  m_Name: Enemy
+  m_Name: BigBat
   m_EditorClassIdentifier: 
-  spawnRate: 10
-  spawnTime: 0
-  enemyPrefab: {fileID: 7452097201820894392, guid: 02b2dc09d25aadd42b3c2be26d5b087a,
+  spawnRate: 30
+  spawnTime: 30
+  enemyPrefab: {fileID: 7452097201820894392, guid: fa6ae4175a0a0fc40b89d670573c1609,
     type: 3}
-  maxHealth: 2
-  speed: 0.5
-  damage: 1
+  maxHealth: 10
+  speed: 0.3
+  damage: 3

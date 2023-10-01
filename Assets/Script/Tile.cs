@@ -10,7 +10,11 @@ public class Tile : MonoBehaviour
     [SerializeField] private MeshRenderer mesh;
     [SerializeField] private List<MeshRenderer> meshList = new List<MeshRenderer>();
     [SerializeField] private MeshRenderer meshPhantom;
+    [SerializeField] private MeshRenderer unsafeGround;
     public bool built = false;
+
+    [Header("MATERIALS")]
+    [SerializeField] private List<Material> unsafeMaterialList = new List<Material>();
     public enum TileState
     {
         Empty = 0,
@@ -66,5 +70,18 @@ public class Tile : MonoBehaviour
         });
     }
 
+    #endregion
+
+    #region Unity API
+    private void Start()
+    {
+        int rotation = Random.Range(0, 3);
+        unsafeGround.transform.localEulerAngles = new Vector3(unsafeGround.transform.localEulerAngles.x, rotation * 90, unsafeGround.transform.localEulerAngles.z);
+        for (int i = 0; i < meshList.Count; i++)
+        {
+            meshList[i].transform.localEulerAngles = new Vector3(meshList[i].transform.localEulerAngles.x, rotation * 90, meshList[i].transform.localEulerAngles.z);
+        }
+        unsafeGround.material = unsafeMaterialList[Random.Range(0, unsafeMaterialList.Count)];
+    }
     #endregion
 }
