@@ -96,10 +96,6 @@ public class Player : MonoBehaviour
         //        PermanentDataHolder.Instance.FadeOut();
         //    });
         //});
-
-        //death animation
-        //show game over text
-        //game over screen, back to base
     }
 
     public void Attack()
@@ -138,7 +134,17 @@ public class Player : MonoBehaviour
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
         //Rotation system
         //if (aimDirection != Vector3.zero) mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, aimDirection, 10 * Time.deltaTime, 0);
-        mesh.transform.forward = Vector3.RotateTowards(mesh.transform.forward, moveDirection, 30 * Time.deltaTime, 0);
+
+        var mouse_pos = Input.mousePosition;
+        mouse_pos.z = 5.23f; //The distance between the camera and object
+        var object_pos = Camera.main.WorldToScreenPoint(mesh.transform.position);
+        mouse_pos.x = mouse_pos.x - object_pos.x;
+        mouse_pos.y = mouse_pos.y - object_pos.y;
+        var angle = -Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
+
+        mesh.transform.rotation = Quaternion.Euler(new Vector3(0, angle + 90, 0));
+        //Vector3.RotateTowards(mesh.transform.forward, moveDirection, 30 * Time.deltaTime, 0);
+
         //else if (aimDirection != Vector3.zero) mesh.transform.forward = aimDirection;
 
         //currentSpeed = aimingSpeed;
