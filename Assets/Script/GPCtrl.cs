@@ -95,10 +95,10 @@ public class GPCtrl : MonoBehaviour
 
     private void SpawnEnemy(Enemy enemyPrefab, float _angle = 0, float _radiusBonus = 0, bool center = false)
     {
-        if (_angle == 0) _angle = UnityEngine.Random.Range(0f, 2.0f * Mathf.PI);
+        if (_angle == 0) _angle = Random.Range(0f, 2.0f * Mathf.PI);
         Vector3 pos = new Vector3((spawnRadius + _radiusBonus) * Mathf.Cos(_angle), 1, (spawnRadius + _radiusBonus) * Mathf.Sin(_angle));
         if (center) pos = Vector3.zero;
-        Instantiate(enemyPrefab).transform.position = pos;
+        Instantiate(enemyPrefab).transform.position = new Vector3(pos.x + player.transform.position.x, pos.y, pos.z + player.transform.position.z);
     }
 
     public void GameOver()

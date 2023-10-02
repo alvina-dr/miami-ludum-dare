@@ -23,6 +23,7 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (GPCtrl.Instance.pause) return;
         Enemy _enemy = other.GetComponent<Enemy>();
         if (_enemy != null)
         {
