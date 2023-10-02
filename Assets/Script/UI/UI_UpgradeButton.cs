@@ -28,7 +28,7 @@ public class UI_UpgradeButton : MonoBehaviour
         audioSource.clip = GPCtrl.Instance.GeneralData.upgradeSound[Random.Range(0, GPCtrl.Instance.GeneralData.upgradeSound.Count)];
         audioSource.Play();
         data.Upgrade(GPCtrl.Instance.upgradeSave, GPCtrl.Instance.player, num);
-        GPCtrl.Instance.DestroyFarthestTiles(data.cost);
+        GPCtrl.Instance.DestroyFarthestTiles(data.cost * num);
         num += 1;
         GPCtrl.Instance.UICtrl.UpgradeMenu.UpdateMenu();
     }

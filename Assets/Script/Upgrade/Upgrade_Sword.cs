@@ -8,6 +8,6 @@ public class Upgrade_Sword : UpgradeData
     public override void Upgrade(GPCtrl.UpgradeSave data, Player player, int num)
     {
         base.Upgrade(data, player, num);
-        data.swordFrequency *= factor;
+        data.swordRange *= factor;
     }
 }

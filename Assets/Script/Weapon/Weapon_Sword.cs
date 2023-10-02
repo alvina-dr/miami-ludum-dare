@@ -9,12 +9,12 @@ public class Weapon_Sword : Weapon
     public override void Setup()
     {
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + data.angle, 0), .2f).OnComplete(() =>
+        sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + GPCtrl.Instance.upgradeSave.swordRange, 0), .2f).OnComplete(() =>
         {
             if (mesh != null) mesh.gameObject.SetActive(false);
         }));
-        sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + data.angle, 0), .01f));
-        sequence.AppendInterval(GPCtrl.Instance.upgradeSave.swordFrequency);
+        sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + GPCtrl.Instance.upgradeSave.swordRange, 0), .01f));
+        sequence.AppendInterval(data.reloadTime);
         sequence.AppendCallback(() =>
         {
             if (mesh != null) mesh.gameObject.SetActive(true);
