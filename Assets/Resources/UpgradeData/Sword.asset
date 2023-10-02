@@ -15,5 +15,5 @@ MonoBehaviour:
   upgradeName: Sword
   upgradeDescription: Sword swipe will be 20% larger.
   sprite: {fileID: 21300000, guid: 66f0bb4af7d00474a9dec34c752c69fa, type: 3}
-  cost: 6
+  cost: 4
   factor: 1.2

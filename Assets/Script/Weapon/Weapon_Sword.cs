@@ -8,14 +8,14 @@ public class Weapon_Sword : Weapon
     #region Methods
     public override void Setup()
     {
-        transform.localEulerAngles = new Vector3(0, -GPCtrl.Instance.upgradeSave.swordRange / 2, 0);
         transform.DOKill();
+        transform.localEulerAngles = new Vector3(0, -GPCtrl.Instance.upgradeSave.swordRange / 2, 0);
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + GPCtrl.Instance.upgradeSave.swordRange, 0), .2f, RotateMode.FastBeyond360).OnComplete(() =>
+        sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localEulerAngles.y + GPCtrl.Instance.upgradeSave.swordRange, 0), .2f, RotateMode.FastBeyond360).OnComplete(() =>
         {
             if (mesh != null) mesh.gameObject.SetActive(false);
         }));
-        sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + GPCtrl.Instance.upgradeSave.swordRange, 0), .01f, RotateMode.FastBeyond360));
+        sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localEulerAngles.y + GPCtrl.Instance.upgradeSave.swordRange, 0), .01f, RotateMode.FastBeyond360));
         sequence.AppendInterval(data.reloadTime);
         sequence.AppendCallback(() =>
         {
