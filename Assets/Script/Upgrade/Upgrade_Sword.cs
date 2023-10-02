@@ -9,5 +9,6 @@ public class Upgrade_Sword : UpgradeData
     {
         base.Upgrade(data, player, num);
         data.swordRange *= factor;
+        player.sword.Setup();
     }
 }

@@ -8,6 +8,7 @@ public class Weapon_Sword : Weapon
     #region Methods
     public override void Setup()
     {
+        transform.DOKill();
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + GPCtrl.Instance.upgradeSave.swordRange, 0), .2f).OnComplete(() =>
         {

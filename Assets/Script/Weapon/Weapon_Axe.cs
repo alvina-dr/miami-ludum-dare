@@ -8,6 +8,7 @@ public class Weapon_Axe : Weapon
     #region Methods
     public override void Setup()
     {
+        transform.DOKill();
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + data.angle, 0), 1f, RotateMode.FastBeyond360).SetEase(Ease.Linear).OnComplete(() =>
         {

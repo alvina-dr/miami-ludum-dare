@@ -14,6 +14,7 @@ public class Upgrade_Axe : UpgradeData
         } else
         {
             data.axeFrequency *= factor;
+            player.axe.Setup();
         }
     }
 }

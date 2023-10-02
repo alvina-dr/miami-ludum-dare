@@ -16,4 +16,4 @@ MonoBehaviour:
   upgradeDescription: Improve axe.
   sprite: {fileID: 21300000, guid: abef3a73130f4ac4cbc8ce6b6acc1959, type: 3}
   cost: 5
-  factor: 0.9
+  factor: 0.1
