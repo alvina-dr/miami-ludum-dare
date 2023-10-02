@@ -36,7 +36,7 @@ public class UI_UpgradeButton : MonoBehaviour
     public void UpdateButton()
     {
         costText.text = (data.cost * num).ToString();
-        if (GPCtrl.Instance.builtTileCount() > data.cost)
+        if (GPCtrl.Instance.builtTileCount() > data.cost * num)
         {
             costText.color = Color.black;
             button.interactable = true;

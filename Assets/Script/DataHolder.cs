@@ -24,4 +24,9 @@ public class DataHolder : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
