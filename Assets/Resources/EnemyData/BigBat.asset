@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fe61020c383814eadabd4c6546e1ec, type: 3}
   m_Name: BigBat
   m_EditorClassIdentifier: 
-  spawnRate: 20
+  spawnRate: 25
   spawnTime: 20
   enemyPrefab: {fileID: 7452097201820894392, guid: fa6ae4175a0a0fc40b89d670573c1609,
     type: 3}

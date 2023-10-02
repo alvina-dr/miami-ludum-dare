@@ -15,5 +15,5 @@ MonoBehaviour:
   upgradeName: Tile multiplicator
   upgradeDescription: The number of tile built each time (+1).
   sprite: {fileID: 21300000, guid: 5ee05be6db371dc479cb52258f4589bc, type: 3}
-  cost: 20
-  factor: 1
+  cost: 1
+  factor: 5

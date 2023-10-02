@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b7b38592e9f784a90f00cd8f822e88, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 8
   reloadTime: 1.5
   angle: 90

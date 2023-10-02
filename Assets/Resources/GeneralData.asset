@@ -21,13 +21,13 @@ MonoBehaviour:
   tileSpawnNumber: 1
   playerMaxHealth: 10
   playerNormalSpeed: 2
-  timeRateReduction: 0.9
+  timeRateReduction: 0.8
   gameStage:
-  - 20
   - 60
   - 120
   - 180
-  - 300
+  - 240
+  - 350
   - 500
   - 1000
   deathParticles: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
