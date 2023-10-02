@@ -30,6 +30,8 @@ public class GPCtrl : MonoBehaviour
     public List<UpgradeData> upgradeDataList = new List<UpgradeData>();
 
     public bool pause = false;
+
+    public int enemyDeathNum = 0;
     #endregion
 
     #region
@@ -42,6 +44,12 @@ public class GPCtrl : MonoBehaviour
                 InstantiateTile(i, j);
             }
         }
+    }
+
+    public void AddDeathEnemy()
+    {
+        enemyDeathNum++;
+        UICtrl.SetCounter(enemyDeathNum);
     }
 
     public void InstantiateTile(int _x, int _y)
@@ -148,6 +156,7 @@ public class GPCtrl : MonoBehaviour
         }
         SetupMap();
         upgradeSave = new UpgradeSave(GeneralData.tileSpawnNumber, GeneralData.tileFrequency, player.axe.data.reloadTime, player.sword.data.angle);
+        UICtrl.SetCounter(enemyDeathNum);
     }
 
     private void Update()
