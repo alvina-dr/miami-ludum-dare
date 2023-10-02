@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float dashTime;
     [SerializeField] private float dashCooldown;
     private bool isDashing = false;
-    private bool canDash = true;
+    //private bool canDash = true;
 
     [Header("STATS")]
     private float maxHealth;
