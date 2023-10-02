@@ -14,7 +14,7 @@ public class Weapon_Sword : Weapon
             if (mesh != null) mesh.gameObject.SetActive(false);
         }));
         sequence.Append(transform.DOLocalRotate(new Vector3(0, transform.localRotation.y + data.angle, 0), .01f));
-        sequence.AppendInterval(data.reloadTime);
+        sequence.AppendInterval(GPCtrl.Instance.upgradeSave.swordFrequency);
         sequence.AppendCallback(() =>
         {
             if (mesh != null) mesh.gameObject.SetActive(true);
